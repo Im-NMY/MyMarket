@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyMarket</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="moscow">Moscow</string>
+    <string name="select_category">Select Category</string>
+    <string name="view_all">view all</string>
+    <string name="new_label">NEW</string>
+</resources>

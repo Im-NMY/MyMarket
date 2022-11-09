@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvTools"
+    android:layout_width="71dp"
+    android:layout_height="71dp"
+    app:cardCornerRadius="100dp"
+    android:layout_margin="5dp"
+    android:layout_gravity="center"
+    app:cardElevation="5dp">
+
+    <ImageView
+        android:id="@+id/ivTools"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"
+        android:src="@drawable/ic_tools_24"/>
+
+</androidx.cardview.widget.CardView>
