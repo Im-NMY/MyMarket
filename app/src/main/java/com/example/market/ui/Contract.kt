@@ -1,6 +1,7 @@
 package com.example.market.ui
 
 import com.example.market.base.Event
+import com.example.market.base.Item
 import com.example.market.domain.CategoryModules
 import com.example.market.domain.phones.*
 
@@ -9,7 +10,7 @@ data class ViewState(
     val basketProducts: List<BasketProductsModel>,
     val detailsProduct: DetailsProductModel,
     val categories: List<CategoryModules.CategoriesItem>,
-)
+): Item
 
 sealed class DataEvent : Event {
     object LoadProducts : DataEvent()

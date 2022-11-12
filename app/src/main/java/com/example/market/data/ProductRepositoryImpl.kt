@@ -7,18 +7,6 @@ import com.example.market.domain.phones.ProductsModel
 
 class ProductRepositoryImpl(private val source: ProductRemoteSource): ProductRepository {
 
-//    override suspend fun getHotProducts(): List<HotProductsModel> {
-//        return source.getProducts().hotProductsList.map {
-//            it.hotToDomain()
-//        }
-//    }
-//
-//    override suspend fun getBestProducts(): List<BestProductsModel> {
-//        return source.getProducts().bestProductsList.map {
-//            it.bestToDomain()
-//        }
-//    }
-
     override suspend fun getProducts(): ProductsModel {
 
         val list1 = source.getProducts().hotProductsList.map {
