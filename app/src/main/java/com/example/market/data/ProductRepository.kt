@@ -1,6 +1,8 @@
 package com.example.market.data
 
-import com.example.market.domain.*
+import com.example.market.domain.phones.BasketProductsModel
+import com.example.market.domain.phones.DetailsProductModel
+import com.example.market.domain.phones.ProductsModel
 
 interface ProductRepository {
 

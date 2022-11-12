@@ -1,4 +1,4 @@
-package com.example.market.domain
+package com.example.market.domain.phones
 
 data class DetailsProductModel(
     val cpu: String = "",

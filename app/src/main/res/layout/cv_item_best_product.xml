@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="200dp"
+    android:layout_height="250dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="3dp"
+    app:cardMaxElevation="3dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBestProd"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:background="@color/light_grey"
+            android:scaleType="centerCrop"
+            app:cardCornerRadius="8dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvBookmarks"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="100dp"
+            app:cardElevation="5dp"
+            android:layout_margin="15dp"
+            android:layout_alignEnd="@id/ivBestProd">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cards_heart_outline"
+                android:layout_gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvBestPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivBestProd"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/dark_purple"
+            android:textSize="16sp"
+            tools:text="$3500" />
+
+        <TextView
+            android:id="@+id/tvBestDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivBestProd"
+            android:layout_toEndOf="@+id/tvBestPrice"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="11dp"
+            android:textColor="@color/light_grey"
+            android:textSize="10sp"
+            tools:text="$5000" />
+
+        <TextView
+            android:id="@+id/tvBestTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvBestPrice"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            tools:text="Samsung"
+            android:textColor="@color/dark_purple"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -1,10 +1,74 @@
 package com.example.market.ui
 
-import android.graphics.PorterDuff
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
-import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
+import com.example.market.base.Item
+import com.example.market.databinding.CvItemHotProductBinding
+import com.example.market.databinding.RvItemHorizontalCategoryBinding
+import com.example.market.databinding.RvItemHorizontalHotProdBinding
+import com.example.market.domain.Categories
+import com.example.market.domain.CategoriesListItem
+import com.example.market.domain.phones.HotProductsModel
+import com.example.market.domain.phones.ProductsModel
+import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
+import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
+
+object MainScreenDelegates{
+
+    val categoriesDelegate =
+        adapterDelegateViewBinding<CategoriesListItem, Item, RvItemHorizontalCategoryBinding>(
+        {layoutInflater, container ->
+            RvItemHorizontalCategoryBinding.inflate(layoutInflater, container, false)}
+    ){
+        bind {
+//            binding.recyclerView.adapter = horizontalAdapter
+
+        }
+
+    }
+
+    val HotProdDelegate = adapterDelegateViewBinding<ProductsModel, Item, RvItemHorizontalHotProdBinding>(
+        {inflater, container ->
+            RvItemHorizontalHotProdBinding.inflate(inflater, container, false) }
+    ){
+        bind {
+            binding.rvHorizontalHotProd.adapter = horizontalAdapter
+        }
+
+    }
+
+   private val hotProdItemDelegate = adapterDelegateViewBinding<HotProductsModel, Item, CvItemHotProductBinding >(
+        {layoutInflater, container -> CvItemHotProductBinding.inflate(layoutInflater, container, false)}
+    ){
+        bind {
+            binding.tvTitle.text = item.title
+            binding.tvSubtitle.text = item.subtitle
+            binding.cvNew.isVisible = item.isNew
+        }
+    }
+
+    private val horizontalAdapter = ListDelegationAdapter(
+        hotProdItemDelegate
+    )
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //fun colorAdapterDelegate(
 //    onClick: (Int) -> Unit

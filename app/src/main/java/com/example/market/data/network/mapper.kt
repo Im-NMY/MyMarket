@@ -1,13 +1,7 @@
 package com.example.market.data.network
 
-import com.example.market.data.network.modules.BasketProductRemoteModel
-import com.example.market.data.network.modules.BestProductsRemoteModel
-import com.example.market.data.network.modules.DetailsRemoteModel
-import com.example.market.data.network.modules.HotProductsRemoteModel
-import com.example.market.domain.BestProductsModel
-import com.example.market.domain.DetailsProductModel
-import com.example.market.domain.HotProductsModel
-import com.example.market.domain.ProductsInBasketModel
+import com.example.market.data.network.modules.*
+import com.example.market.domain.phones.*
 
 fun HotProductsRemoteModel.hotToDomain() = HotProductsModel(
     id = id,

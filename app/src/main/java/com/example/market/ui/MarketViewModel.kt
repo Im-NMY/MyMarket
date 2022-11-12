@@ -4,7 +4,11 @@ import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.example.market.base.BaseViewModel
 import com.example.market.base.Event
-import com.example.market.domain.*
+import com.example.market.domain.Categories
+import com.example.market.domain.CategoryModules
+import com.example.market.domain.Interactions
+import com.example.market.domain.phones.DetailsProductModel
+import com.example.market.domain.phones.ProductsModel
 import kotlinx.coroutines.launch
 
 class MarketViewModel(private val interactions: Interactions) : BaseViewModel<ViewState>() {
@@ -28,7 +32,8 @@ class MarketViewModel(private val interactions: Interactions) : BaseViewModel<Vi
             rating = 0.0f,
             sd = "",
             ssd = "",
-        )
+        ),
+        categories = enumValues<Categories>().map { CategoryModules.CategoriesItem(it.value) }
 
     )
 

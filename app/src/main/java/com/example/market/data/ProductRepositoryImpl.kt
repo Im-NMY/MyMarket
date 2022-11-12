@@ -1,7 +1,9 @@
 package com.example.market.data
 
 import com.example.market.data.network.*
-import com.example.market.domain.*
+import com.example.market.domain.phones.BasketProductsModel
+import com.example.market.domain.phones.DetailsProductModel
+import com.example.market.domain.phones.ProductsModel
 
 class ProductRepositoryImpl(private val source: ProductRemoteSource): ProductRepository {
 
