@@ -18,9 +18,3 @@ sealed class CategoryModules : Item {
 //    data class Books(val books: String) : CategoryModules()
 //    data class Tools(val tools: String) : CategoryModules()
 }
-
-data class Element(
-    val categoryList: List<CategoriesListItem>,
-    val hotProdList: List<HotProductsModel>,
-    val bestProdList: List<BestProductsModel>,
-): Item

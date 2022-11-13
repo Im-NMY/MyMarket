@@ -1,31 +1,26 @@
 package com.example.market.ui
 
-import android.content.Context
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.market.base.Item
-import com.example.market.databinding.CvItemBestProductBinding
-import com.example.market.databinding.CvItemHotProductBinding
-import com.example.market.databinding.ItemCategoriesBinding
-import com.example.market.databinding.RvItemHorizontalCategoryBinding
-import com.example.market.databinding.RvItemHorizontalHotProdBinding
-import com.example.market.databinding.RvItemVerticalBestProdBinding
-import com.example.market.domain.testmodel.CategoriesListItem
+import com.example.market.databinding.*
 import com.example.market.domain.CategoryModel
 import com.example.market.domain.phones.BestProductsModel
 import com.example.market.domain.phones.HotProductsModel
-import com.example.market.domain.phones.ProductsModel
 import com.example.market.domain.testmodel.BestProdListItem
+import com.example.market.domain.testmodel.CategoriesListItem
 import com.example.market.domain.testmodel.HotProdListItem
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
 
-
-
 //        Glide.with(holder.itemView).load(productData.HotProductsList[position].picture).fitCenter().into(holder.ivHotProd)
 object MainScreenDelegates {
 
+    /**
+     * Делегат для отоброжения Item с вложенным списком для Hot Sales
+     * Имеет свой Адаптер для заполнения списка
+     */
     val horizontalCategoryDelegate =
         adapterDelegateViewBinding<CategoriesListItem, Item, RvItemHorizontalCategoryBinding>(
             { layoutInflater, container ->
@@ -42,10 +37,14 @@ object MainScreenDelegates {
                 }
             }
         }
+    /**
+     * Делегат для отоброжения Item CardView
+     * инициализирует все имеющие View
+     */
     private val categoriesDelegate =
-        adapterDelegateViewBinding<CategoryModel, Item, ItemCategoriesBinding>(
+        adapterDelegateViewBinding<CategoryModel, Item, CvItemCategoriesBinding>(
             { inflater, container ->
-                ItemCategoriesBinding.inflate(inflater, container, false)
+                CvItemCategoriesBinding.inflate(inflater, container, false)
             }
         ) {
             bind {
