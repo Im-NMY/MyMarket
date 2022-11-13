@@ -1,13 +1,22 @@
 package com.example.market.ui
 
+import android.content.Context
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.market.base.Item
+import com.example.market.databinding.CvItemBestProductBinding
 import com.example.market.databinding.CvItemHotProductBinding
 import com.example.market.databinding.ItemCategoriesBinding
 import com.example.market.databinding.RvItemHorizontalCategoryBinding
-import com.example.market.domain.Categories
-import com.example.market.domain.CategoriesListItem
+import com.example.market.databinding.RvItemHorizontalHotProdBinding
+import com.example.market.databinding.RvItemVerticalBestProdBinding
+import com.example.market.domain.testmodel.CategoriesListItem
+import com.example.market.domain.CategoryModel
+import com.example.market.domain.phones.BestProductsModel
 import com.example.market.domain.phones.HotProductsModel
+import com.example.market.domain.phones.ProductsModel
+import com.example.market.domain.testmodel.BestProdListItem
+import com.example.market.domain.testmodel.HotProdListItem
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
@@ -15,44 +24,105 @@ import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
 
 //        Glide.with(holder.itemView).load(productData.HotProductsList[position].picture).fitCenter().into(holder.ivHotProd)
-object MainScreenDelegates{
+object MainScreenDelegates {
 
     val horizontalCategoryDelegate =
         adapterDelegateViewBinding<CategoriesListItem, Item, RvItemHorizontalCategoryBinding>(
-        {layoutInflater, container ->
-            RvItemHorizontalCategoryBinding.inflate(layoutInflater, container, false).apply {
-                recyclerView.adapter = horizontalAdapter
+            { layoutInflater, container ->
+                RvItemHorizontalCategoryBinding.inflate(layoutInflater, container, false).apply {
+                    recyclerView.adapter = horizontalAdapter1
+
+                }
+            }
+        ) {
+            bind {
+                (binding.recyclerView.adapter as ListDelegationAdapter<List<Item>>).apply {
+                    items = item.iconList
+                    notifyDataSetChanged()
+                }
             }
         }
-    ){
-        bind {
-            (binding.recyclerView.adapter as ListDelegationAdapter<List<Item>>).apply {
-                items = item.iconList
-                notifyDataSetChanged()
+    private val categoriesDelegate =
+        adapterDelegateViewBinding<CategoryModel, Item, ItemCategoriesBinding>(
+            { inflater, container ->
+                ItemCategoriesBinding.inflate(inflater, container, false)
+            }
+        ) {
+            bind {
+                binding.ivCategory.setImageResource(item.category)
+
             }
         }
-    }
-    private val categoriesDelegate = adapterDelegateViewBinding<Categories, Item, ItemCategoriesBinding>(
-        {inflater, container ->
-            ItemCategoriesBinding.inflate(inflater, container, false) }
-    ){
-        bind {
-            binding.ivCategory.setImageResource(item.value)
-        }
-    }
-    private val horizontalAdapter = ListDelegationAdapter(
+
+    private val horizontalAdapter1 = ListDelegationAdapter(
         categoriesDelegate
     )
 
-    val horizontalHotProdDelegate = adapterDelegateViewBinding<HotProductsModel, Item, CvItemHotProductBinding >(
-        {layoutInflater, container -> CvItemHotProductBinding.inflate(layoutInflater, container, false)}
-    ){
-        bind {
+    val horizontalHotProdDelegate =
+        adapterDelegateViewBinding<HotProdListItem, Item, RvItemHorizontalHotProdBinding>(
+            { layoutInflater, container ->
+                RvItemHorizontalHotProdBinding.inflate(layoutInflater, container, false).apply {
+                    rvHorizontalHotProd.adapter = horizontalAdapter2
+                }
+            }
+        ) {
+            bind {
+                (binding.rvHorizontalHotProd.adapter as ListDelegationAdapter<List<Item>>).apply {
+                    items = item.HotProductsList
+                    notifyDataSetChanged()
 
+                }
+            }
         }
-    }
-}
+    private val hotProdDelegate =
+        adapterDelegateViewBinding<HotProductsModel, Item, CvItemHotProductBinding>(
+            { inflater, container ->
+                CvItemHotProductBinding.inflate(inflater, container, false)
+            }
+        ) {
+            bind {
+                binding.cvNew.isVisible = item.isNew
+                binding.tvTitle.text = item.title
+                binding.tvSubtitle.text = item.subtitle
+            }
+        }
+    private val horizontalAdapter2 = ListDelegationAdapter(
+        hotProdDelegate
+    )
 
+    val verticalBestProd =
+        adapterDelegateViewBinding<BestProdListItem, Item, RvItemVerticalBestProdBinding>(
+            { inflater, container ->
+                RvItemVerticalBestProdBinding.inflate(inflater, container, false).apply {
+                    recyclerView.adapter = verticalAdapter
+                    recyclerView.layoutManager = GridLayoutManager(container.context,2)
+                }
+            }
+        ) {
+            bind {
+                (binding.recyclerView.adapter as ListDelegationAdapter<List<Item>>).apply {
+                    items = item.BestProductsList
+                    notifyDataSetChanged()
+                }
+            }
+        }
+
+    private val bestProdDelegate =
+        adapterDelegateViewBinding<BestProductsModel, Item, CvItemBestProductBinding>(
+            { inflater, container ->
+                CvItemBestProductBinding.inflate(inflater, container, false)
+            }
+        ){
+            bind {
+                binding.tvBestPrice.text = item.price.toString()
+                binding.tvBestTitle.text = item.title
+                binding.tvBestDiscount.text = item.discount.toString()
+            }
+        }
+    private val verticalAdapter = ListDelegationAdapter(
+        bestProdDelegate
+    )
+}
 
 
 

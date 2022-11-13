@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.market.base.BaseViewModel
 import com.example.market.base.Event
 import com.example.market.domain.Categories
+import com.example.market.domain.CategoryModel
 import com.example.market.domain.CategoryModules
 import com.example.market.domain.Interactions
 import com.example.market.domain.phones.DetailsProductModel
@@ -33,7 +34,7 @@ class MarketViewModel(private val interactions: Interactions) : BaseViewModel<Vi
             sd = "",
             ssd = "",
         ),
-        categories = enumValues<Categories>().map { CategoryModules.CategoriesItem(it.value) }
+        categories = enumValues<Categories>().map { CategoryModel(it.value) }
 
     )
 

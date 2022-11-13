@@ -1,4 +1,4 @@
-package com.example.market.domain
+package com.example.market.domain.testmodel
 
 import com.example.market.base.Item
 
