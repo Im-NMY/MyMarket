@@ -34,7 +34,7 @@ class MarketViewModel(private val interactions: Interactions) : BaseViewModel<Vi
             sd = "",
             ssd = "",
         ),
-        categories = enumValues<Categories>().map { CategoryModel(it.value) }
+        categories = enumValues<Categories>().map { CategoryModel(it.value, it.title) }
 
     )
 

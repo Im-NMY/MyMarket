@@ -10,8 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/select_category"
-        android:textSize="25sp"
-        android:textColor="@color/dark_purple"
+        style="@style/Title"
         android:layout_marginStart="17dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="17dp"
@@ -21,11 +20,10 @@
 
     <TextView
         android:id="@+id/tvBtnOpenCloseCategory"
+        style="@style/Details"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/view_all"
-        android:textSize="15sp"
-        android:textColor="@color/orange"
         android:layout_marginEnd="27dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvTitleRvCategory"

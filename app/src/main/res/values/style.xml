@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+    Font family: Mark Pro
+    Line height: 33sp
+    (identical to box height)
+    -->
+    <!-- style.xml -->
+    <style name="Title">
+        <item name="android:textSize">25sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">@color/dark_purple</item>
+    </style>
+    <!-- strings.xml -->
+    <string name="Title">Title</string>
+
+    <style name="Details">
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">@color/orange</item>
+    </style>
+    <!-- strings.xml -->
+    <string name="Details">Details</string>
+
+    <style name="categories">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">@color/dark_purple</item>
+    </style>
+    <!-- strings.xml -->
+    <string name="categories">categories</string>
+
+</resources>

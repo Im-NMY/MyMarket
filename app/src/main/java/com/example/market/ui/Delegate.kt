@@ -50,7 +50,7 @@ object MainScreenDelegates {
         ) {
             bind {
                 binding.ivCategory.setImageResource(item.category)
-
+                binding.tvTitleCategory.text=item.title
             }
         }
 

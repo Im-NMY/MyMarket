@@ -7,6 +7,7 @@
 
     <TextView
         android:id="@+id/tvTitleRvHotProd"
+        style="@style/Title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/hot_sales"
@@ -21,11 +22,10 @@
 
     <TextView
         android:id="@+id/tvBtnOpenCloseRvHotProd"
+        style="@style/Details"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/see_more"
-        android:textColor="@color/orange"
-        android:textSize="15sp"
         android:layout_marginEnd="27dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvTitleRvHotProd"
